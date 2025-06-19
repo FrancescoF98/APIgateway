@@ -36,6 +36,7 @@ public class JwtUtil {
     }
 
     public Claims extractAllClaims(String token) {
+        System.out.println("Incoming JWT: " + token);
         return Jwts.parserBuilder()
                 .setSigningKey(getSigningKey())
                 .build()
@@ -58,6 +59,11 @@ public class JwtUtil {
 
     public String generateToken(UserDetails userDetails) {
         Map<String, Object> claims = new HashMap<>();
+
+        claims.put("authorities", userDetails.getAuthorities().stream()
+                .map(auth -> auth.getAuthority())
+                .toList());
+
         return createToken(claims, userDetails.getUsername());
     }
 

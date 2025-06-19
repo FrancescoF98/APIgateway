@@ -5,7 +5,8 @@ spring:
   application:
     name: api-gateway
   datasource:
-    url: jdbc:postgresql://localhost:5432/Database_JWT_users
+#    url: jdbc:postgresql://localhost:5432/Database_JWT_users
+    url: jdbc:postgresql://localhost:5432/Database_Corso_2025_05
     username: postgres
     password: Elite
     driver-class-name: org.postgresql.Driver
